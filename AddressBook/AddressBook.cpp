@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
 using namespace std;
 
 #define MAX 1000
@@ -29,10 +31,29 @@ void addPerson(AddressBooks *abs)
 	else
 	{
 		string name;
-		cout << "请输入姓名" << endl;
+		cout << "请输入姓名：" << endl;
 		cin >> name;
 		abs->personArray[abs->m_Size].m_Name = name;
+		cout << "请输入性别：(1男，2女)" << endl;
+		int sex = 0;
+		cin >> sex;
+		abs->personArray[abs->m_Size].m_Sex = sex;
+		cout << "请输入年龄：" << endl;
+		int age;
+		cin >> age;
+		abs->personArray[abs->m_Size].m_Age= age;
+		cout << "请输入手机号码：" << endl;
+		string phone;
+		cin >> phone;
+		abs->personArray[abs->m_Size].m_Phone= phone;
+		cout << "请输入地址：" << endl;
+		string addr;
+		cin >> addr;
+		abs->personArray[abs->m_Size].m_Addr= addr;
 	}
+	abs->m_Size++;
+	cout << "添加成功" << endl;
+	system("clear");
 }
 void ShowMenu(void)
 {
@@ -77,6 +98,7 @@ int main()
 				break;
 		default:
 				cout << "选择错误" << endl;
+				break;
 		}
 	}
 	return 0;	
