@@ -12,21 +12,21 @@ using namespace std;
 class Person
 {
 public:
-		string m_Name;
+	string m_Name;
 
 protected:
-		string m_Car;
+	string m_Car;
 
 private:
-		int m_Password;
+	int m_Password;
 
 public:
-		void func()
-		{
-			m_Name = "张三";
-			m_Car = "bmw";
-			m_Password = 123456;
-		}
+	void func()		
+	{
+		m_Name = "张三";
+		m_Car = "bmw";
+		m_Password = 123456;
+	}
 };
 
 int main()
