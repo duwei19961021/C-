@@ -55,6 +55,63 @@ void addPerson(AddressBooks *abs)
 	cout << "添加成功" << endl;
 	system("clear");
 }
+
+void showPerson(AddressBooks abs)
+{
+	cout << abs.m_Size << endl;
+	if (0 == abs.m_Size)
+	{
+		cout << "通讯录为空" << endl;
+		return;
+	}
+	for (int i = 0; i < abs.m_Size; i++)
+	{
+		cout << abs.personArray[i].m_Name << "\t"  <<abs.personArray[i].m_Sex << "\t" << abs.personArray[i].m_Age << "\t" << abs.personArray[i].m_Phone << "\t" <<abs.personArray[i].m_Addr << endl;
+	}
+}
+
+void delPerson(AddressBooks *abs)
+{
+	cout << "输入要删除的人的姓名：" << endl;
+	string name;
+	cin >> name;
+	for (int i = 0; i< abs->m_Size ;i++)
+	{
+		if (abs->personArray[i].m_Name == name)
+		{
+			for(int j = i; j<abs->m_Size;j++)
+			{
+				abs->personArray[j] = abs->personArray[j+1];
+			}
+		}
+	}
+	abs->m_Size--;	
+}
+
+void findPerson(AddressBooks abs)
+{
+	cout << "输入要查找的姓名：" << endl;
+	string name;
+	cin >> name;
+	for (int i=0;i< abs.m_Size;i++)
+	{
+		if (abs.personArray[i].m_Name == name)
+		{
+			cout << abs.personArray[i].m_Name << "\t"  <<abs.personArray[i].m_Sex << "\t" << abs.personArray[i].m_Age << "\t" << abs.personArray[i].m_Phone << "\t" <<abs.personArray[i].m_Addr << endl;
+			// break;
+		}
+		else 
+		{
+			cout << "查无此人" << endl;
+		}
+	}
+}
+
+void clearAbs(AddressBooks *abs)
+{
+	abs->m_Size = 0;
+}
+
 void ShowMenu(void)
 {
 	cout << "*************************" << endl;
@@ -83,14 +140,18 @@ int main()
 				addPerson(&abs);
 				break;
 		case 2: // 显示联系人
+				showPerson(abs);
 				break;
 		case 3: // 删除联系人
+				delPerson(&abs);
 				break;
 		case 4: // 查找联系人
+				findPerson(abs);
 				break;
 		case 5: // 修改联系人
 				break;
 		case 6: // 清空联系人
+				clearAbs(&abs);
 				break;
 		case 0: // 退出通讯录
 				cout << "欢迎下次使用" << endl;
