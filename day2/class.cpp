@@ -6,14 +6,14 @@ const double PI = 3.141592654;
 class Circle
 {
 public:
-		int m_r;
-		double calculateCircle()
+		int m_r; // 属性
+		double calculateCircle() // 行为
 		{
 			return 2 * PI * m_r;
 		}
-		double calculateArea()
+		double calculateArea() // 行为
 		{
-			return PI * m_r * m_r;
+			return PI * this->m_r * this->m_r;
 		}
 };
 
