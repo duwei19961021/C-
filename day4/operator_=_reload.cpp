@@ -25,7 +25,7 @@ public:
 			delete m_Age;
 		}
 		this->m_Age = new int(*p.m_Age);
-		return *this;
+		return *this; // p3 = p2 = p1 ,如果返回值是void,那么连等就会报错,在p2=p1时还得返回p2本身才能继续赋值给p3
 	}
 
 	int *m_Age;
