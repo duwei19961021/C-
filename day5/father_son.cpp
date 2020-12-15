@@ -74,6 +74,20 @@ void test03()
 	*/
 }
 
+class GrandSon4: public Son3
+{
+public:
+	void func()
+	{
+		/*
+		this->m_A = 100;
+		this->m_B = 100;
+		this->m_C = 100;
+		均不能访问
+		*/
+	}
+};
+
 int main()
 {
 	test03();
