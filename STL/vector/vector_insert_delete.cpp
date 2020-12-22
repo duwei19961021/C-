@@ -29,13 +29,13 @@ void test01()
 	v1.insert(v1.begin(),100);
 	PrintVector(v1);
 
-	v1.insert(v1.begin(),3,999);
+	v1.insert(v1.begin(),3,999); // 重载版本，插入3个999
 	PrintVector(v1);
 
 	v1.erase(v1.begin());
 	PrintVector(v1);
 
-	v1.erase(v1.begin(),v1.end());
+	v1.erase(v1.begin(),v1.end());  // 清空
 	PrintVector(v1);
 
 	v1.push_back(10);
@@ -46,7 +46,7 @@ void test01()
 
 	PrintVector(v1);
 
-	v1.clear();
+	v1.clear(); // 清空
 
 	PrintVector(v1);
 }
