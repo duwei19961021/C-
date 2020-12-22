@@ -33,8 +33,29 @@ void test01()
 	PrintVector(v2);
 }
 
+void test02()
+{
+	vector<int>v;
+	for(int i=0;i<10000;i++)
+	{
+		v.push_back(i);
+	}
+
+	cout << "v的容量为: " << v.capacity() << endl; // 16384
+	cout << "v的大小为: " << v.size() << endl; // 10000
+
+	v.resize(3);
+	cout << "v的容量为: " << v.capacity() << endl; // 16384
+    cout << "v的大小为: " << v.size() << endl; // 3
+
+	// 利用swap收缩内存
+	vector<int>(v).swap(v); // vector<int>()是一个匿名容器,利用v(3个元素)进行初始化,然后与v进行交换,匿名的容器由系统回收
+	cout << "v的容量为: " << v.capacity() << endl; // 3
+    cout << "v的大小为: " << v.size() << endl; // 3
+}
+
 int main()
 {
-	test01();
+	test02();
 	return 0;
 }
