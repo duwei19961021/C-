@@ -25,8 +25,14 @@ void test01()
 	s1.insert(9);
 	s1.insert(6);
 	s1.insert(1);
-	// 自动排序且元素不能重复
 	PrintSet(s1);
+	// set 容器的特点：所以元素插入的时候自动排序，不允许插入重复值
+;	
+	set<int>s2(s1); // 拷贝构造
+	PrintSet(s2);
+
+	set<int>s3 = s2; // 赋值
+	PrintSet(s3);
 }
 
 int main()
