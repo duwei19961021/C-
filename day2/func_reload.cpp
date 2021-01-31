@@ -35,6 +35,20 @@ void func(double a, int b)
 	cout << "func(double a, int b) 调用" << endl;
 }
 
+/////////////////////////
+int add(int a, int b)
+{
+	return a+b;
+}
+
+double add(double a, double b)
+{
+	return a+b;
+}
+
+// 如果是在c中,两个函数必须分开取不同的名字，c++中则通过函数重载实现函数统一
+/////////////////////////
+
 int main()
 {
 	func(10);
