@@ -41,8 +41,54 @@ void test01()
 	cout << "p3.m_A = " << p3.m_A << " p3.m_B = " << p3.m_B << endl; 
 }
 
+class Date
+{
+public:
+	Date(int year, int month, int day)
+	{
+		this->_year = year;
+		this->_month = month;
+		this->_day = day;
+	}
+
+	bool operator==(const Date& d2) // operator==(Date d1, Date d2)，此函数是类的内部函数，在调用传参时会给其传上一个默认参数：this指针，即相当于 operator==(Date& this, d1, d2)，由于this的存在，d1已经没有必要传参了，所以最终形式是：operator==(Date d2)， 相当于 d1.operator==(d2)
+	{
+		return this->_year == d2._year
+			&& this->_month == d2._month
+			&& this->_day == d2._day;
+	}
+
+	bool operator>(const Date& d2)
+	{
+		return this->_year > d2._year || (this->_year == d2._year && this->_month > d2._month) || (this->_year == d2._year && this->_month == d2._month && this->_day > d2._day);
+	}
+	
+	void PrintDate()
+	{
+		cout << "time: " << _year << "-" << _month << "-" << _day << endl;
+	}
+
+//private:
+	int _year;
+	int _month;
+	int _day;
+};
+
+
+void test02()
+{
+	Date d1(2020,2,1);
+	Date d2(2020,2,3);
+	if(d1 == d2)
+		cout << "==" << endl;
+	if(d1 > d2)
+		cout << ">" << endl;
+	else
+		cout << "<=" << endl;
+}
+
 int main()
 {
-	test01();
+	test02();
 	return 0;
 }
