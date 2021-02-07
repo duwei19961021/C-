@@ -7,5 +7,10 @@ int main()
 	d2.PrintDate();
 	d2 -= 90;
 	d2.PrintDate();
+	for(int i = 0; i < 10; i++)
+		++d2;
+	d2.PrintDate();
+	if(d > d2)
+		cout << ">" << endl;
 	return 0;
 }
