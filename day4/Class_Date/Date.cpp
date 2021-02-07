@@ -106,3 +106,79 @@ Date Date::operator-(int day)
 	ret -= day;
 	return ret;
 }
+
+// 前置++
+Date& Date::operator++()
+{
+	*this += 1;
+	return *this;
+}
+
+Date Date::operator++(int)
+{
+	Date ret(*this);
+	ret+=1;
+	return ret;
+}
+
+Date& Date::operator--()
+{
+	*this -= 1;
+	return *this;
+}
+
+Date Date::operator--(int)
+{
+	Date ret(*this);
+	ret -= 1;
+	return *this;
+}
+
+bool Date::operator>(const Date& d)
+{
+	return (this->_year > d._year || (this->_year == d._year && this->_month > d._month) || (this->_year == d._year && this->_month == d._month && this->_day > d._day));
+}
+
+bool Date::operator==(const Date& d)
+{
+	return this->_year == d._year && this->_month == d._month && this->_day == d._day;
+}
+
+bool Date::operator>=(const Date& d)
+{
+	return (*this > d || *this == d);
+}
+
+bool Date::operator<(const Date& d)
+{
+	return !(*this > d || *this == d);
+}
+
+bool Date::operator<=(const Date& d)
+{
+	return !(*this > d || *this == d) || (*this == d);
+}
+
+bool Date::operator!=(const Date& d)
+{
+	return (this->_year != d._year || this->_month != d._month || this->_day != d._day);
+}
+
+int Date::operator-(const Date& d)
+{
+	Date max = *this, min = d;
+	int flag = 1;
+	if(*this < d)
+	{
+		max = d;
+		min = *this;
+		flag = -1;
+	}
+	int n = 0;
+	while(min != max)
+	{
+		++n;
+		min += 1;
+	}
+	return n*flag;
+}
