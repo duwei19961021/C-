@@ -70,8 +70,44 @@ void test04() // 遍历
 	cout << endl;
 }
 
+void test05()
+{
+	string s1("hello world");
+	cout << s1.size() << endl;
+	cout << s1.length() << endl;
+	cout << s1.max_size() << endl;
+	cout << s1.capacity() << endl;
+	s1 += "4";
+	cout << s1.capacity() << endl;
+}
+
+void test06()
+{
+	string s1("abcdefg");
+	cout << s1.capacity() << endl;
+	s1.reserve(200); // 开辟201个字节大小的空间
+	cout << s1.capacity() << endl;
+	s1.resize(205);
+	cout << s1.capacity() << endl;
+	cout << s1 << endl;
+}
+
+void test07()
+{
+	string s;
+	s.push_back('x');
+	s.append("abcd");
+	cout << s << endl;
+	s.insert(s.begin(),'0');
+	cout << s << endl;
+	s.insert(2,"2");
+	cout << s << endl;
+	s.erase(3,string::npos);
+	cout << s << endl;
+}
+
 int main()
 {
-	test04();
+	test07();
 	return 0;
 }
