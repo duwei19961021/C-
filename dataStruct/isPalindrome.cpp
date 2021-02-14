@@ -13,25 +13,17 @@ public:
         for(auto &ch:s) // 先将大写转小写
         {
             if(ch >= 'A' && ch <= 'Z')
-            {
                 ch += 32;
-            }
         }
         int start = 0, end = s.size()-1; // 双指针：start指向第一个字符，end指向最后一个字符
         while(start < end)
         {
             while(start < end && !isLetter(s[start])) // 走到是字母或者数字的位置停止
-            {
                 start++;
-            }
             while(start < end && !isLetter(s[end])) // 走到是字母或者数字的位置停止
-            {
                 end--;
-            }
             if(s[start] != s[end]) // 判断是否相等
-            {
                 return false;
-            }
             start++; // 判断完要继续向中间位置靠拢
             end--;
         }
