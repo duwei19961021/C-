@@ -47,7 +47,7 @@ public:
 		string retStr = "0";
 		if(num1 == "0" || num2 == "0")
 			return retStr;
-		int flag = 0; // 内部的循环完成一次flag+1,利用flag来判断在tmpStr后增加的0的个数(第一次flag=0,因为乘的是各位。第二次flag=1,因为乘的是十位。)
+		int flag = 0; // 内部的循环完成一次flag+1,利用flag来判断在tmpStr后增加的0的个数(第一次flag=0,因为乘的是个位。第二次flag=1,因为乘的是十位。)
 		for(int end1 = num1.size() - 1;end1 >= 0; end1--)
 		{
 			string tmpStr;
