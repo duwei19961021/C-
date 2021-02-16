@@ -15,13 +15,9 @@ public:
             int valA = 0;
             int valB = 0;
             if(endA >= 0)
-            {
                 valA = a[endA] - '0';
-            }
             if(endB >= 0)
-            {
                 valB = b[endB] - '0';
-            }
             int ret = valA + valB + next;
             if(ret > 1)
             {
@@ -37,9 +33,7 @@ public:
             endB--;
         }
         if(next == 1)
-        {
             retStr.insert(retStr.begin(),'1');
-        }
         return retStr;
     }
 };
