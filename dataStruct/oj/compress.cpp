@@ -53,7 +53,6 @@ public:
                 {
                     size_t num = (count % 10);
                     count /= 10;
-                    cout << "count = "<< count << endl;
                     chars[first+length] = num+'0';
                     length--;
                 }
