@@ -33,8 +33,22 @@ void test01()
 	}
 }
 
+void test02() // constructor
+{
+	queue<int> myQueue;
+	for(size_t i = 0; i < 10; i++)
+	{
+		myQueue.push(i);
+	}
+	while(!myQueue.empty())
+	{
+		cout << myQueue.front() << " " << "size = " << myQueue.size() << endl; // 访问队头元素(出口)
+		myQueue.pop(); // 删除队头元素	
+	}
+}
+
 int main()
 {
-	test01();
+	test02();
 	return 0;
 }
