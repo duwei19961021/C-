@@ -31,3 +31,24 @@ public:
         return ret;
     }
 };
+
+// 解法2
+class Solution {
+public:
+    char firstUniqChar(string s) 
+    {
+        vector<int> book(26,0);
+        for(int i = 0; i < s.size(); i++)
+        {
+            book[s[i]-'a']++;
+        }
+        for(int i = 0; i < s.size();i++)
+        {
+            if(book[s[i]-'a'] == 1)
+            {
+                return s[i];
+            }
+        }
+        return ' ';
+    }
+};
